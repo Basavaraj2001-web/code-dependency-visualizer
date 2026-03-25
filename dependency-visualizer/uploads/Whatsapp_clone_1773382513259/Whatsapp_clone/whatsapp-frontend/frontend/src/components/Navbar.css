@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f5f5;
+}
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.profile-section button {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #0b93f6;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+.profile-section button:hover {
+  background-color: #0980d6;
+}

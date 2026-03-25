@@ -1,0 +1,328 @@
+.booking-container {
+    max-width: 90%;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    /* background: linear-gradient(135deg, #fff5f7, #f8f0f5); */
+    /* background: linear-gradient(360deg, #f7cba7, #d4d0d0); */
+    background-image: url(https://cdn.wallpapersafari.com/63/10/oILrXl.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    width: 100vw;
+    /* background: linear-gradient(360deg, #e7b58c, #979494); */
+    /* background-color: #d6d6d6; */
+    background-color: #fff5f5;
+
+
+}
+
+.intop {
+    background: linear-gradient(135deg, #f1afbb, #f8f0f5);
+    border: none;
+    padding: 7px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+
+}
+
+.intop1 {
+    background: linear-gradient(135deg, #f1afbb, #f8f0f5);
+    border: none;
+    padding: 7px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+
+
+}
+
+.progress-bar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 4rem;
+}
+
+.progress {
+    position: absolute;
+    height: 2px;
+    background: #f5f2f2;
+    width: 0%;
+    top: 50%;
+    transition: width 0.3s ease;
+}
+
+.progress-step {
+    width: 30px;
+    height: 30px;
+    background: rgb(228, 230, 227);
+    border: 2px groove #534d4d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.progress-step.active {
+    border-color: #8b8987;
+    background: #f19ea5;
+    color: white;
+}
+
+.booking-step {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.booking-step.active {
+    display: block;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.service-card {
+    background: rgb(253, 180, 180);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    color: rgb(255, 255, 255);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(183, 110, 121, 0.5);
+    color: black;
+}
+
+.service-card.selected {
+    border-color: #817b7b;
+    background: linear-gradient(135deg, #f7d2d9, #f8f0f5);
+    color: #0c0c0c;
+}
+
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.time-slot {
+    padding: 0.5rem;
+    text-align: center;
+    background: rgb(179, 178, 178);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-slot:hover:not(.disabled) {
+    background: #f8f0f5;
+}
+
+.time-slot.selected {
+    background: #4d4a4b;
+    color: white;
+}
+
+.time-slot.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f0f0f0;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.next-btn,
+.submit-btn {
+    background: linear-gradient(135deg, #ec8798, #f8eaea);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: inset 2px 1px 1px white;
+}
+
+
+.back-btn {
+    background: linear-gradient(135deg, #ec8798, #f8eaea);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: inset 2px 1px 1px white;
+
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.success-message {
+    display: none;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.booking-details {
+    margin: 2rem auto;
+    max-width: 400px;
+    text-align: left;
+    background: rgba(241, 158, 165, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.detail-item {
+    margin: 0.5rem 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.detail-item span {
+    font-weight: bold;
+    color: #e47383;
+}
+
+.confirmation-note {
+    margin: 1.5rem 0;
+    color: #666;
+    font-style: italic;
+}
+
+.success-message i {
+    font-size: 4rem;
+    color: #00ff55;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    color: rgb(255, 255, 255);
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.return {
+    background: linear-gradient(135deg, #ec8798, #f8eaea);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: inset 2px 1px 1px white;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .booking-container {
+        max-width: 95%;
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .time-slots {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .next-btn,
+    .back-btn,
+    .submit-btn,
+    .return {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-container {
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .progress-step {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+
+    .service-card {
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .intop,
+    .intop1 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .booking-container {
+        max-width: 85%;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}

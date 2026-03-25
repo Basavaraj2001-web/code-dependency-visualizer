@@ -1,0 +1,226 @@
+/* ======================================== */
+/* MAIN CHAT LAYOUT */
+/* ======================================== */
+/* Entire chatbox area */
+.chatbox {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f0f2f5;
+  overflow: hidden;
+}
+
+/* CONTENT (messages and input) */
+.chatbox-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden; /* Important: prevents full-page scroll */
+}
+
+
+/* ======================================== */
+/* HEADER */
+/* ======================================== */
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.chat-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.chat-username {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.chat-status {
+  font-size: 13px;
+  color: gray;
+}
+
+/* ======================================== */
+/* SCROLLABLE MESSAGES AREA */
+/* ======================================== */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px 22px;
+  background: #e5ddd5;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: calc(100% - 60px); /* leaves space for input field */
+}
+
+
+/* ======================================== */
+/* MESSAGE ALIGNMENT */
+/* ======================================== */
+.sent,
+.received {
+  display: flex;
+  width: 100%;
+}
+
+.sent {
+  justify-content: flex-end; /* right side */
+}
+
+.received {
+  justify-content: flex-start; /* left side */
+}
+
+/* ======================================== */
+/* MESSAGE BUBBLE */
+/* ======================================== */
+.bubble {
+  max-width: 75%; /* WhatsApp standard bubble width */
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.4;
+  word-break: break-word;
+  position: relative;
+}
+
+/* SENT BUBBLE (GREEN) */
+.sent .bubble {
+  background: #dcf8c6;
+  border-radius: 10px 10px 0px 10px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+/* RECEIVED BUBBLE (WHITE) */
+.received .bubble {
+  background: #ffffff;
+  border-radius: 10px 10px 10px 0px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+/* ======================================== */
+/* GROUP SENDER NAME */
+/* ======================================== */
+.sender-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a73e8;
+  margin-bottom: 4px;
+}
+
+/* ======================================== */
+/* IMAGES */
+/* ======================================== */
+.message-image {
+  max-width: 230px;
+  border-radius: 12px;
+  margin: 5px 0;
+  display: block;
+}
+
+/* ======================================== */
+/* VIDEOS */
+/* ======================================== */
+.message-video {
+  max-width: 230px;
+  border-radius: 12px;
+  margin-top: 5px;
+}
+
+/* ======================================== */
+/* FILE LINK */
+/* ======================================== */
+.message-file {
+  display: block;
+  margin-top: 6px;
+  color: #0b57d0;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+/* ======================================== */
+/* TIME + TICKS (bottom right) */
+/* ======================================== */
+.message-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  font-size: 11px;
+  margin-top: 4px;
+  color: #555;
+}
+
+.tick {
+  font-size: 13px;
+}
+
+.double {
+  letter-spacing: -4px;
+}
+
+.read {
+  color: #21c45b; /* WhatsApp blue tick */
+}
+
+/* ======================================== */
+/* INPUT SECTION */
+/* ======================================== */
+.message-input-container {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  padding: 12px;
+  border-top: 1px solid #ccc;
+  z-index: 50;
+}
+
+
+/* ======================================== */
+/* NO CHAT SELECTED */
+/* ======================================== */
+.no-chat {
+  margin: auto;
+  font-size: 16px;
+  color: #777;
+  text-align: center;
+}
+
+
+.group-info-btn {
+  background: #0b81ff;
+  color: white;
+  padding: 7px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.group-info-btn:hover {
+  background: #0266d3;
+}
+
+.tick {
+  font-size: 14px;
+  color: grey; /* default color */
+}
+
+
+.tick.double.read {
+  color: green !important; /* WhatsApp-style read */
+}

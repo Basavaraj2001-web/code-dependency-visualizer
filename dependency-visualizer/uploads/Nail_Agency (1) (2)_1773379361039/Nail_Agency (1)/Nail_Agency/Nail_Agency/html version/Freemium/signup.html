@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Account</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .signup-container {
+      background-color: #111;
+      padding: 40px;
+      border-radius: 10px;
+      width: 380px;
+      text-align: center;
+    }
+
+    .signup-container h2 {
+      margin-bottom: 20px;
+      color: #ff4da6;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+      position: relative;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #222;
+      color: #fff;
+    }
+
+    .toggle-eye {
+      position: absolute;
+      right: 10px;
+      top: 35px;
+      cursor: pointer;
+      color: #ff4da6;
+      font-size: 1.1em;
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(90deg, #ff4da6, #ff66cc);
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .signup-btn:hover {
+      opacity: 0.9;
+    }
+
+    .login-link {
+      margin-top: 20px;
+      font-size: 0.9em;
+    }
+
+    .login-link a {
+      color: #ff4da6;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Create Your Account</h2>
+    <form id="signupForm">
+      <div class="input-group">
+        <label for="name">👤 Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+      </div>
+      <div class="input-group">
+        <label for="email">📧 Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label for="phone">📱 Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+      </div>
+      <div class="input-group">
+        <label for="password">🔒 Password</label>
+        <input type="password" id="password" placeholder="Create a password" required>
+        <span class="toggle-eye" onclick="togglePassword('password', this)">👁️</span>
+      </div>
+      <div class="input-group">
+        <label for="confirmPassword">🔒 Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+        <span class="toggle-eye" onclick="togglePassword('confirmPassword', this)">👁️</span>
+      </div>
+      <button type="submit" class="signup-btn">Sign Up</button>
+    </form>
+    <div class="login-link">
+      Already have an account? <a href="login.html">Login</a>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword(fieldId, eyeIcon) {
+      const input = document.getElementById(fieldId);
+      if (input.type === "password") {
+        input.type = "text";
+        eyeIcon.textContent = "🙈"; // change icon when visible
+      } else {
+        input.type = "password";
+        eyeIcon.textContent = "👁️"; // revert icon
+      }
+    }
+
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if(password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      if(name && email && phone && password) {
+        alert("Signup successful for: " + name + " (" + email + ")");
+      } else {
+        alert("Please fill in all fields.");
+      }
+    });
+  </script>
+</body>
+</html>

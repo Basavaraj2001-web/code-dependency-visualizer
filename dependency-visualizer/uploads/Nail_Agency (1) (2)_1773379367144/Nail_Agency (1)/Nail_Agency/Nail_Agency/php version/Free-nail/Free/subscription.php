@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscription Plans - GLAMNAILS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --glam-pink: #f8c0c0;
+    --glam-gradient: linear-gradient(90deg, #f8c0c0, #f1a7a7);
+    --dark-bg: #000000;
+    --card-bg: #111111;
+    --text-white: #ffffff;
+    --text-gray: #a1a1a1;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    margin: 0;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(0,0,0,0.9);
+    border-bottom: 1px solid #333;
+}
+
+.logo-text h1 { margin:0; font-size:22px; letter-spacing:2px; }
+.logo-text p { margin:0; font-size:10px; color:var(--text-gray); }
+
+nav ul {
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav ul li a {
+    text-decoration:none;
+    color:white;
+}
+
+.nav-active {
+    background:var(--glam-gradient);
+    padding:8px 18px;
+    border-radius:20px;
+    color:black !important;
+    font-weight:600;
+}
+
+/* PRICING */
+.pricing-section {
+    padding:80px 20px;
+    text-align:center;
+}
+
+.pricing-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    max-width:1100px;
+    margin:50px auto;
+}
+
+.plan-card {
+    background:var(--card-bg);
+    padding:40px;
+    border-radius:15px;
+    border:1px solid #222;
+}
+
+.featured { border:1px solid var(--glam-pink); }
+
+.price-tag { font-size:48px; margin:20px 0; }
+
+.duration-select {
+    background:#222;
+    color:white;
+    border:1px solid #444;
+    padding:12px;
+    width:100%;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.subscribe-btn {
+    background:var(--glam-gradient);
+    color:black;
+    border:none;
+    padding:15px;
+    width:100%;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* BENEFITS */
+.benefits {
+    text-align:left;
+    margin:20px 0;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.benefits p {
+    margin:6px 0;
+    color:var(--text-gray);
+}
+
+.highlight {
+    color:var(--glam-pink);
+    font-weight:600;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo-text">
+        <h1>GLAMNAILS</h1>
+        <p>PREMIUM NAIL ARTISTRY</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="#" class="nav-active">Subscription</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="pricing-section">
+    <h1>Membership Plans</h1>
+
+    <div class="pricing-grid">
+
+        <!-- FREE -->
+        <div class="plan-card">
+            <h3>Free</h3>
+            <div class="price-tag">$0</div>
+
+            <div class="benefits">
+                <p>✔<span class="highlight">Access to basic gallery</span> </p>
+                <p>✔<span class="highlight">View limited nail designs</span> </p>
+                <p>✖ Booking priority</p>
+            </div>
+
+            <button class="subscribe-btn" onclick="redirectToLogin('free',0,'1 Month')">
+                Get Started
+            </button>
+        </div>
+
+        <!-- FREEMIUM -->
+        <div class="plan-card featured">
+            <h3>Freemium</h3>
+            <div id="price-freemium" class="price-tag">$15</div>
+
+            <div class="benefits">
+                <p>✔ <span class="highlight">View Our Services</span></p>
+                <p>✔ <span class="highlight">Book Appointments</span></p>
+                <p>✔<span class="highlight">Access premium nail gallery</span></p>
+                <p>✖ Discount on services</p>
+            </div>
+
+            <select id="select-freemium" class="duration-select" onchange="updatePrice('freemium')">
+                <option value="1 Month" data-price="15">1 Month</option>
+                <option value="3 Months" data-price="40">3 Months</option>
+                <option value="6 Months" data-price="75">6 Months</option>
+            </select>
+
+            <button class="subscribe-btn" onclick="selectPlan('freemium')">
+                Select Plan
+            </button>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="plan-card">
+            <h3>Premium</h3>
+            <div id="price-premium" class="price-tag">$30</div>
+
+            <div class="benefits">
+                <p>✔ <span class="highlight">Access All Pages</span></p>
+                <p>✔ <span class="highlight">Priority Booking</span></p>
+                <p>✔ <span class="highlight">Flat 30% Discount</span> on all services</p>
+               
+            </div>
+
+            <select id="select-premium" class="duration-select" onchange="updatePrice('premium')">
+                <option value="1 Month" data-price="30">1 Month</option>
+                <option value="3 Months" data-price="80">3 Months</option>
+                <option value="6 Months" data-price="150">6 Months</option>
+            </select>
+
+            <button class="subscribe-btn" onclick="selectPlan('premium')">
+                Select Plan
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<script>
+function updatePrice(tier){
+    const select=document.getElementById(`select-${tier}`);
+    const price=document.getElementById(`price-${tier}`);
+    const newPrice=select.options[select.selectedIndex].dataset.price;
+    price.innerText=`$${newPrice}`;
+}
+
+function selectPlan(tier){
+    const select=document.getElementById(`select-${tier}`);
+    const duration=select.value;
+    const price=select.options[select.selectedIndex].dataset.price;
+    redirectToLogin(tier,price,duration);
+}
+
+function redirectToLogin(plan,price,duration){
+    window.location.href=`login.php?plan=${plan}&price=${price}&duration=${duration}`;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Celestial Nail Lounge</title>
+    <link rel="stylesheet" href="appoint.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <!-- Add Flatpickr for better date/time picking -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+    <div class="booking-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+            <div class="progress-step active" data-step="1">1</div>
+            <div class="progress-step" data-step="2">2</div>
+            <div class="progress-step" data-step="3">3</div>
+        </div>
+
+        <!-- Step 1: Service Selection -->
+        <div class="booking-step active" id="step1">
+            <h2>Select Your Service</h2>
+            <div class="service-grid">
+                <div class="service-card" data-service="manicure" data-price="35">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3>Royal Manicure</h3>
+                    <p>$35</p>
+                </div>
+                <div class="service-card" data-service="pedicure" data-price="45">
+                    <i class="fas fa-spa"></i>
+                    <h3>Luxury Pedicure</h3>
+                    <p>$45</p>
+                </div>
+                <div class="service-card" data-service="gel" data-price="40">
+                    <i class="fas fa-magic"></i>
+                    <h3>Gel Overlay</h3>
+                    <p>$40</p>
+                </div>
+                <div class="service-card" data-service="trim" data-price="25">
+                    <i class="fas fa-cut"></i>
+                    <h3>Precision Trim</h3>
+                    <p>$25</p>
+                </div>
+            </div>
+            <button class="next-btn" onclick="nextStep()">Continue</button>
+        </div>
+
+        <!-- Step 2: Date & Time Selection -->
+        <div class="booking-step" id="step2">
+            <h2>Choose Date & Time</h2>
+            <div class="datetime-picker">
+                <input type="text" id="date-picker" placeholder="Select Date" class="intop">
+                <div class="time-slots" id="time-slots"></div>
+            </div>
+            <div class="button-group">
+                <button class="back-btn" onclick="prevStep()">Back</button>
+                <button class="next-btn" onclick="nextStep()">Continue</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Contact Information -->
+        <div class="booking-step" id="step3">
+            <h2>Your Details</h2>
+            <form id="booking-form" onsubmit="submitBooking(event)">
+                <div class="form-group">
+                    <input type="text" id="name" required placeholder="Full Name" class="intop1">
+                    <span class="error-message"></span>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="email" id="email" required placeholder="Email" class="intop1">
+                    <span class="error-message"></span>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <input type="tel" id="phone" required placeholder="Phone Number" class="intop1">
+                    <span class="error-message"></span>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <textarea id="notes" placeholder="Special requests or notes" class="intop1"></textarea>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="back-btn" onclick="prevStep()">Back</button>
+                    <button type="submit" class="submit-btn">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="success-message">
+            <i class="fas fa-check-circle"></i>
+            <h2>Booking Confirmed!</h2>
+            <div class="booking-details">
+                <p class="detail-item">Service: <span id="confirm-service"></span></p>
+                <p class="detail-item">Date: <span id="confirm-date"></span></p>
+                <p class="detail-item">Time: <span id="confirm-time"></span></p>
+                <p class="detail-item">Price: $<span id="confirm-price"></span></p>
+                <p class="detail-item">Name: <span id="confirm-name"></span></p>
+                <p class="detail-item">Email: <span id="confirm-email"></span></p>
+            </div>
+            <p class="confirmation-note">We'll send you a confirmation email shortly.</p>
+            <button onclick="window.location.href='index.php'" class="return">Return to Home</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="appiont.js"></script>
+</body>
+
+</html>

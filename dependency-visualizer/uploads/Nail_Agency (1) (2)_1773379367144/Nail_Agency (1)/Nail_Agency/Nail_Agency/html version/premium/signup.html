@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GlamNails - Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .signup-container {
+            width: 420px;
+            background: #111;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(255, 182, 193, 0.3);
+        }
+
+        .signup-container h2 {
+            text-align: center;
+            color: #ffb6c1;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px;
+            background: #f1f1f1;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-group input:focus {
+            box-shadow: 0 0 10px #ffb6c1;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 30px;
+            background: #ffb6c1;
+            color: #000;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background: #ff8da1;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #ffb6c1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-container">
+        <h2>Create Your Account</h2>
+
+        <form action="#" method="POST">
+
+            <div class="input-group">
+                <input type="text" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="Phone Number" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" placeholder="Confirm Password" required>
+            </div>
+
+            <button type="submit" class="signup-btn">Sign Up</button>
+
+        </form>
+
+        <div class="login-link">
+            Already have an account? <a href="index.html">Login</a>
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.querySelector('.signup-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Signing Up...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('Account created successfully! Redirecting to login...');
+                window.location.href = 'index.html';
+            }, 1500);
+        });
+    </script>
+</body>
+
+</html>

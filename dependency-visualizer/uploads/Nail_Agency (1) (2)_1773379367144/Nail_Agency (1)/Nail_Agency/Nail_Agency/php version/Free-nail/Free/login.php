@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login - GLAMNAILS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body{
+    background:#000;
+    color:white;
+    font-family:'Inter',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    background:#111;
+    padding:40px;
+    border-radius:15px;
+    width:350px;
+    border:1px solid #f8c0c0;
+}
+
+h2{ text-align:center; }
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    background:#222;
+    border:1px solid #444;
+    color:white;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:linear-gradient(90deg,#f8c0c0,#f1a7a7);
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+a{ color:#f8c0c0; text-decoration:none; }
+</style>
+</head>
+<body>
+
+<div class="card">
+<h2>Login</h2>
+<form onsubmit="return loginUser(event)">
+<input type="email" required placeholder="Email">
+<input type="password" required placeholder="Password">
+<button type="submit">Login</button>
+</form>
+<p style="text-align:center;margin-top:15px;">
+Not registered? <a href="register.php">Register Here</a>
+</p>
+</div>
+
+<script>
+function loginUser(e){
+    e.preventDefault();
+    alert("Login Successful!");
+    window.location.href="subscription.php";
+}
+</script>
+
+</body>
+</html>

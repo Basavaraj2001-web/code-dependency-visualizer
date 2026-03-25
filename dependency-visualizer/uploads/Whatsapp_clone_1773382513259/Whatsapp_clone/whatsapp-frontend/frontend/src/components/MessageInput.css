@@ -1,0 +1,81 @@
+/* src/components/MessageInput.css */
+.message-input-container {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  align-items: center;
+  border-top: 1px solid #eee;
+  background: white;
+}
+
+.plus-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.message-input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 24px;
+  border: 1px solid #eee;
+  outline: none;
+  background: #f7f7f7;
+}
+
+.send-btn {
+  padding: 10px 16px;
+  background: #128c7e;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.message-input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #f0f2f5;
+  position: relative;
+}
+
+.plus-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.send-btn {
+  margin-left: 8px;
+  background: #0b93f6;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.emoji-popup {
+  position: absolute;
+  bottom: 60px;
+  left: 10px;
+  z-index: 999;
+  background: white;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}

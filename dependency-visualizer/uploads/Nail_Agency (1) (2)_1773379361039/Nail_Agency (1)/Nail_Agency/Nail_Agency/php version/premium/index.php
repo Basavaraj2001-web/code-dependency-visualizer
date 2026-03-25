@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glam Nails</title>
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="scroll.js" defer></script>
+</head>
+
+<body>
+    <!-- new navbar -->
+
+    <nav class="service-nav">
+        <div class="brand">
+            <div class="brand-container">
+                <div class="brand-logo">
+                    <svg class="nail-icon" viewBox="0 0 512 512">
+                        <path class="polish-bottle"
+                            d="M280 32h-48c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16V48c0-8.8-7.2-16-16-16z" />
+                        <path class="polish-drip"
+                            d="M256 128c-70.7 0-128 57.3-128 128v160c0 35.3 28.7 64 64 64h128c35.3 0 64-28.7 64-64V256c0-70.7-57.3-128-128-128zm0 288c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z" />
+                    </svg>
+                    <div class="sparkles">
+                        <i class="fas fa-sparkle sparkle-1"></i>
+                        <i class="fas fa-sparkle sparkle-2"></i>
+                        <i class="fas fa-sparkle sparkle-3"></i>
+                    </div>
+                </div>
+                <div class="brand-text">
+                    <h2 class="brand-name">Glam<span class="accent">Nails</span></h2>
+                    <p class="brand-tagline">Premium Nail Artistry</p>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.php" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a></li>
+            <li><a href="service.php" class="nav-link">
+                    <i class="fas fa-spa"></i>
+                    <span>Services</span>
+                </a></li>
+            <li><a href="about.php" class="nav-link">
+                    <i class="fas fa-address-card"></i>
+                    <span>About</span>
+                </a></li>
+            <li><a href="contact.php" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a></li>
+            <li><a href="appoint.php" class="nav-link book-btnn">
+                    <i class="fas fa-calendar-alt"></i>
+
+                    <span>Book Now</span>
+                </a></li>
+            <li class="login-container">
+                <a href="#" class="nav-link login-trigger">
+                    <i class="fas fa-user"></i>
+                    <span>Login</span>
+                </a>
+                <div class="login-dropdown">
+                    <form class="login-form">
+                        <h3>Customer Login</h3>
+                        <div class="form-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-options">
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="login-btn">Login</button>
+                        
+                        <div class="signup-link">
+                            New customer? <a href="signup.php">Sign up</a>
+                        </div>
+                    </form>
+                </div>
+            </li>
+    </nav>
+
+    <!-- <div class="page-loader">
+        <div class="loader"></div>
+    </div> -->
+    <div class="nav2">
+        <div class="slider-container">
+            <div class="slide active">
+                <div class="overlay"></div>
+                <div class="para">
+                    <h2 class="cof">PERFECT</h2>
+                    <h1>DESIGN YOUR NAILS.....</h1>
+                    <p>Incredible nail art designs, top quality products, and expert care for your nails.</p>
+                    <button class="appointment-btn">Book Your Appointment<i class="fas fa-calendar-alt"></i></button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="overlay"></div>
+                <div class="para">
+                    <h2 class="cof">LUXURY</h2>
+                    <h1>PREMIUM NAIL CARE</h1>
+                    <p>Experience the finest nail treatments with our expert technicians.</p>
+                    <button class="appointment-btn">Book Your Appointment<i class="fas fa-calendar-alt"></i></button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="overlay"></div>
+                <div class="para">
+                    <h2 class="cof">ARTISTIC</h2>
+                    <h1>UNIQUE NAIL ART</h1>
+                    <p>Custom designs and creative patterns for your perfect look.</p>
+                    <button class="appointment-btn">Book Your Appointment<i class="fas fa-calendar-alt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="slider-dots"></div>
+        <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+
+
+
+    <div class="middle">
+        <!-- <h1 class="ref2">We offer a variety of <b> nail services</b></h1> -->
+        <h2 class="timeline-title"> We offer a variety of <b> Nail Services</b></h2>
+
+        <div class="image">
+
+            <div class="headbox1">
+                <h2 class="sub1">"For all your hands and feet do for you"</h2>
+            </div>
+            <div class="headbox2">
+
+                <p> "At <b> Glam NAILS</b>, we are passionate about providing exceptional nail
+                    care
+                    services in a warm and welcoming environment. Our team of experienced nail technicians are dedicated
+                    to ensuring that every client leaves feeling relaxed and satisfied."
+                    <br>
+                    "Our state-of-the-art nail studio is equipped with the latest technology and equipment, allowing us
+                    to offer a wide range of services including gel and acrylic nails, nail art, and nail repair."
+
+                </p>
+
+                <button class="modern-btn">
+                    <span class="btn-text">Contact Us</span>
+                    <span class="btn-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="luxury-features">
+        <div class="modern-btn">
+            <i class="fas fa-crown"></i>
+            <h3 class="text1">Premium Experience</h3>
+            <p>Indulge in our VIP treatment...</p>
+        </div>
+        <div class=" modern-btn">
+            <i class="fas fa-sparkles"></i>
+            <h3 class="text2">Expert Artists</h3>
+            <p>Skilled professionals at your service...</p>
+        </div>
+        <div class=" modern-btn">
+            <i class="fas fa-gem"></i>
+            <h3 class="text1">Luxury Products</h3>
+            <p>Using only the finest materials...</p>
+        </div>
+    </div>
+
+    <div class="gallery-section">
+        <!-- <h1 class="section-title">Our Premium Services....</h1> -->
+        <h2 class="timeline-title1">Our Service Journey</h2>
+
+        <div class="gallery-categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="manicure">Manicure</button>
+            <button class="category-btn" data-category="pedicure">Pedicure</button>
+            <button class="category-btn" data-category="art">Nail Art</button>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="manicure">
+
+                <img src=" https://pronailsandlashesnewtown.com/wp-content/uploads/2023/11/PRO-NAILS-LASHES-New-Town-ND-58763-Services.04.jpg"
+                    alt="Classic Manicure">
+
+
+                <div class="gallery-overlay">
+                    <h3>Classic Manicure</h3>
+                    <p>Premium Care for Natural Beauty</p>
+                    <button class="modern-btn view-btn">
+                     <i class="fas fa-eye"></i> View Details
+                    </button>
+
+                </div>
+            </div>
+            <div class="gallery-item" data-category="art">
+                <img src="  https://t3.ftcdn.net/jpg/09/80/75/40/360_F_980754073_C5xBoZLWBHATqWTfZRbiEX13JTfrfqD8.jpg"
+                    alt="Designer Nail Art">
+                <div class="gallery-overlay">
+                    <h3>Designer Patterns</h3>
+                    <p>Unique Artistic Designs</p>
+                    <button class="modern-btn view-btn">
+                     <i class="fas fa-eye"></i> View Details
+                    </button>
+
+                </div>
+            </div>
+            <div class="gallery-item" data-category="pedicure">
+                <img src="  https://plus.unsplash.com/premium_photo-1661497613621-c15cd729b394?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVkaWN1cmV8ZW58MHx8MHx8fDA%3D"
+                    alt="Luxury Pedicure">
+                <div class="gallery-overlay">
+                    <h3>Luxury Pedicure</h3>
+                    <p>Relaxing Foot Treatment</p>
+                    <button class="modern-btn view-btn">
+                     <i class="fas fa-eye"></i> View Details
+                   </button>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div class="gallery-modal">
+            <span class="modal-close"><i class="fas fa-times"></i></span>
+            <img src="" alt="Gallery Image" class="modal-img">
+            <div class="modal-content">
+                <h3 class="modal-title"></h3>
+                <p class="modal-description"></p>
+            </div>
+            <button class="modal-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="modal-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class=" modern-btn">
+        <div class="testimonials">
+            <h2 class="timeline-title">Client Experiences</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial">
+                    <div class="quote"><i class="fas fa-quote-left"></i></div>
+                    <p>"Absolutely amazing experience! The attention to detail is unmatched."</p>
+                    <div class="client-info">
+                        <img src="  https://i.pinimg.com/736x/eb/61/8a/eb618a319ae8e9420c252df422fb4523.jpg"
+                            alt="Client">
+                        <span>Sarah Johnson</span>
+                    </div>
+                </div>
+                <!-- Add more testimonials -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Newsletter -->
+    <section class="newsletter-section glass-card">
+        <h2 class="timeline-title">Stay Updated</h2>
+        <p>Subscribe to our newsletter for the latest trends and exclusive offers!</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="modern-btn">
+                <span class="btn-text">Subscribe</span>
+                <i class="far fa-paper-plane"></i>
+            </button>
+        </form>
+    </section>
+
+    <footer class="footer12">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p class="about-text">Welcome to Glam NAILS, where creativity meets elegance. We specialize in premium
+                    nail care services and unique designs that help you express your personal style.</p>
+                <div class="contact-info">
+                    <br>
+                    <span><i class="fas fa-phone"></i> +92 0321 2808957</span>
+                    <span><i class="fas fa-envelope"></i> info@glamnails.com</span>
+                    <span><i class="fas fa-map-marker-alt"></i> 123 Beauty Street, NYC</span>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#index.php">Home</a></li>
+                    <li><a href="#service.php">Services</a></li>
+                    <li><a href="#contactus.php">Contact</li>
+                    <li><a href="#products"></a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span class="tooltip">Follow on Instagram</span>
+                    </a>
+                    <a href="#" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <span class="tooltip">Like on Facebook</span>
+                    </a>
+                    <a href="#" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span class="tooltip">Follow on Twitter</span>
+                    </a>
+                    <a href="#" class="social-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="tooltip">Chat on WhatsApp</span>
+                    </a>
+                </div>
+                <div class="business-hours">
+                    <h4>Opening Hours</h4>
+                    <p>Mon - Fri: 9am - 8pm</p>
+                    <p>Sat: 10am - 6pm</p>
+                    <p>Sun: Closed</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Glam NAIL. All rights reserved.</p>
+        </div>
+            
+    </footer>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+/* src/pages/ChatPage.css */
+.chatpage-container {
+  display: flex;
+  height: 100vh;
+  background: #f0f2f5;
+}

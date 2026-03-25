@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nailart Services | Special Offers</title>
+    <link rel="stylesheet" href="service.css?v=25">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ─── HERO SLIDER OVERRIDE ─── */
+        .service-header {
+            position: relative !important;
+            height: 600px !important;
+            overflow: hidden !important;
+        }
+
+        .slider-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            opacity: 0 !important;
+            transition: opacity 1s ease !important;
+            overflow: hidden;
+        }
+
+        .slide.active {
+            opacity: 1 !important;
+            z-index: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.85) 100%);
+            z-index: 2;
+        }
+
+        .slide img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center center !important;
+            display: block;
+        }
+
+        .slide-content {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -80%) !important;
+            text-align: center;
+            color: white;
+            z-index: 3;
+            width: 80%;
+            max-width: 780px;
+            opacity: 0 !important;
+            transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s !important;
+        }
+
+        .slide.active .slide-content {
+            opacity: 1 !important;
+            transform: translate(-50%, -50%) !important;
+        }
+
+        .slide-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.4rem 1.1rem;
+            border-radius: 25px;
+            margin-bottom: 1rem;
+        }
+
+        .slide-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.15;
+            margin-bottom: 0.9rem;
+            text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        .slide-content p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.8rem;
+            line-height: 1.7;
+            text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: white !important;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(255, 154, 158, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .slide-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(255, 154, 158, 0.6);
+        }
+
+        /* Nav buttons */
+        .slider-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .prev-btn,
+        .next-btn {
+            position: absolute !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            color: white !important;
+            width: 50px !important;
+            height: 50px !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50% !important;
+            cursor: pointer !important;
+            pointer-events: auto !important;
+            z-index: 5 !important;
+            transition: all 0.3s ease;
+        }
+
+        .prev-btn {
+            left: 1.5rem !important;
+        }
+
+        .next-btn {
+            right: 1.5rem !important;
+        }
+
+        .prev-btn:hover,
+        .next-btn:hover {
+            background: rgba(255, 154, 158, 0.85) !important;
+        }
+
+        /* Dots */
+        #dots {
+            position: absolute !important;
+            bottom: 1.5rem !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            display: flex !important;
+            gap: 0.5rem;
+            pointer-events: auto !important;
+            z-index: 5 !important;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 0.9rem;
+            border-radius: 2rem;
+        }
+
+        #dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #dots .dot.active {
+            background: #ff9a9e;
+            width: 26px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .service-header {
+                height: 420px !important;
+            }
+
+            .slide-content h1 {
+                font-size: 2rem !important;
+            }
+
+            .slide-content p {
+                font-size: 0.95rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+     <nav class="service-nav">
+        <div class="brand">
+            <div class="brand-container">
+                <div class="brand-logo">
+                    <svg class="nail-icon" viewBox="0 0 512 512">
+                        <path class="polish-bottle"
+                            d="M280 32h-48c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16V48c0-8.8-7.2-16-16-16z" />
+                        <path class="polish-drip"
+                            d="M256 128c-70.7 0-128 57.3-128 128v160c0 35.3 28.7 64 64 64h128c35.3 0 64-28.7 64-64V256c0-70.7-57.3-128-128-128zm0 288c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z" />
+                    </svg>
+                    <div class="sparkles">
+                        <i class="fas fa-sparkle sparkle-1"></i>
+                        <i class="fas fa-sparkle sparkle-2"></i>
+                        <i class="fas fa-sparkle sparkle-3"></i>
+                    </div>
+                </div>
+                <div class="brand-text">
+                    <h2 class="brand-name">Glam<span class="accent">Nails</span></h2>
+                    <p class="brand-tagline">Premium Nail Artistry</p>
+                </div>
+            </div>
+        </div>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a></li>
+            <li><a href="service.html" class="nav-link">
+                    <i class="fas fa-spa"></i>
+                    <span>Services</span>
+                </a></li>
+            <li><a href="about.html" class="nav-link">
+                    <i class="fas fa-address-card"></i>
+                    <span>About</span>
+                </a></li>
+            <li><a href="contact.html" class="nav-link active">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a></li>
+            <li><a href="appoint.html" class="nav-link book-btnn">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Book Now</span>
+                </a></li>
+        </ul>
+    </nav>
+
+    <header class="service-header">
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide active">
+                    <img src="https://images.unsplash.com/photo-1604654894611-6973b376cbde?w=1600&q=80"
+                        alt="Premium Nail Art">
+                    <div class="slide-content">
+                        <span class="slide-badge">&#10022; Premium Artistry</span>
+                        <h1>Elevate Your<br>Nail Game</h1>
+                        <p>Discover luxury nail care crafted with precision and passion &mdash; where every brush stroke
+                            tells your story.</p>
+                        <a href="appoint.html" class="slide-cta"><i class="fas fa-calendar-alt"></i> Book Your
+                            Session</a>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1604655871323-3be27d1c4049?w=1600&q=80"
+                        alt="Floral Nail Designs">
+                    <div class="slide-content">
+                        <span class="slide-badge">&#10022; Floral Collection</span>
+                        <h1>Floral &amp; Fantasy<br>Nail Art</h1>
+                        <p>From delicate cherry blossoms to intricate petal designs &mdash; our artists craft wearable
+                            art that blooms on your fingertips.</p>
+                        <a href="appoint.html" class="slide-cta"><i class="fas fa-spa"></i> Explore Designs</a>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1604656438958-3da0c9e7ccca?w=1600&q=80"
+                        alt="Gel and Acrylic Nail Extensions">
+                    <div class="slide-content">
+                        <span class="slide-badge">&#10022; Up to 30% Off</span>
+                        <h1>Gel, Acrylic &amp;<br>Luxury Extensions</h1>
+                        <p>Flawless, chip-free nails that last for weeks. Experience salon-grade extensions crafted for
+                            elegance that never fades.</p>
+                        <a href="appoint.html" class="slide-cta"><i class="fas fa-star"></i> Claim Your Offer</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-nav">
+                <button class="prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                <div class="dots" id="dots">
+                    <div class="dot active" data-index="0"></div>
+                    <div class="dot" data-index="1"></div>
+                    <div class="dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="service-content">
+
+        <div class="service-section">
+            <h2 class="section-title">Our Nail Art Services</h2>
+            <div class="service-cards">
+
+                <div class="card">
+                    
+                    <img src="https://glaminati.com/wp-content/uploads/2024/04/flower-nail-designs-black-base-pumpkin-flowers-500x500.jpg"
+                        alt="Floral Nails">
+                    <h3>Floral Nails</h3>
+                    <p>Floral nail art embodies the essence of beauty and serves as a creative canvas for
+                        self-expression.</p>
+                    <div class="price-box">
+                         <span class="price">Starting at $55</span>
+                    </div>
+                    <button class="book-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/2c/bd/b4/2cbdb417ac8493f7b425d0574683ff94.jpg"
+                        alt="Halloween Faces">
+                    <h3>Halloween Faces</h3>
+                    <p>Halloween undoubtedly belongs to bats, spider webs, pumpkins or ghosts. Blood accents or dark
+                        crosses.</p>
+                    <span class="price">Starting at $45</span>
+                    <button class="book-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <div class="discount-badge">SPECIAL</div>
+                    <img src="https://images.stockcake.com/public/c/d/6/cd697032-54f7-4e8a-b612-ba2a43ca494c_large/artistic-nail-design-stockcake.jpg"
+                        alt="Art Design">
+                    <h3>Geometrical Shapes</h3>
+                    <p>A geometric look is usually created with a sheer base and then a strong strikethrough color.</p>
+                    <div class="price-box">
+                         <span class="price">Starting at $65</span>
+                    </div>
+                    <button class="book-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                   
+                    <img src="https://i.pinimg.com/originals/50/06/11/500611cc9fef3c1d23d8acf80ae7ce43.jpg"
+                        alt="Art Design">
+                    <h3>Heart Nails</h3>
+                    <p>Willing to get crafty? Celebrity manicurists love 3D heart nails for some extra texture.</p>
+                    <div class="price-box">
+                     <span class="price">Starting at $35</span>
+                    </div>
+                    <button class="book-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://nailsblaze.com/files/Pic/NB-Designs/Marble/Red/(5)Red-Marble.webp_1716233945"
+                        alt="Art Design">
+                    <h3>Marble Nails</h3>
+                    <p>Marble-like colors and textures to create an illusion of depth, subtle to dramatic.</p>
+                    <span class="price">Starting at $45</span>
+                    <button class="book-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://thumbs.dreamstime.com/b/photo-showcases-stunning-sophisticated-nail-art-design-featuring-black-white-checkered-patterns-chic-stylish-look-321104260.jpg"
+                        alt="Art Design">
+                    <h3>Black and White Nails</h3>
+                    <p>Manicures serving high contrast. When you add black and white, it’s glam queen vibes.</p>
+                    <span class="price">Starting at $65</span>
+                    <button class="book-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Nail MODS</h3>
+                <p>Professional nail care services delivering exceptional artistry and luxury experiences.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span class="tooltip">Follow on Instagram</span>
+                    </a>
+                    <a href="#" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <span class="tooltip">Like on Facebook</span>
+                    </a>
+                    <a href="#" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span class="tooltip">Follow on Twitter</span>
+                    </a>
+                    <a href="#" class="social-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="tooltip">Chat on WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Opening Hours</h3>
+                <ul class="hours-list">
+                    <li>Monday - Friday: 9am - 8pm</li>
+                    <li>Saturday: 10am - 6pm</li>
+                    <li>Sunday: Closed</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe for exclusive offers and updates</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Glam NAIL. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="service.js"></script>
+    <script>
+        // Inline slider init — runs after service.js in case of any conflict
+        (function () {
+            var slides = document.querySelectorAll('.service-header .slide');
+            var dotEls = document.querySelectorAll('#dots .dot');
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
+
+            if (!slides.length) return;
+
+            var current = 0;
+            var timer;
+
+            function show(idx) {
+                slides[current].classList.remove('active');
+                dotEls[current] && dotEls[current].classList.remove('active');
+                current = (idx + slides.length) % slides.length;
+                slides[current].classList.add('active');
+                dotEls[current] && dotEls[current].classList.add('active');
+            }
+
+            // Reset all, activate first
+            slides.forEach(function (s) { s.classList.remove('active'); });
+            dotEls.forEach(function (d) { d.classList.remove('active'); });
+            slides[0].classList.add('active');
+            dotEls[0] && dotEls[0].classList.add('active');
+
+            function startAuto() {
+                timer = setInterval(function () { show(current + 1); }, 4500);
+            }
+
+            prevBtn && prevBtn.addEventListener('click', function () {
+                clearInterval(timer); show(current - 1); startAuto();
+            });
+            nextBtn && nextBtn.addEventListener('click', function () {
+                clearInterval(timer); show(current + 1); startAuto();
+            });
+            dotEls.forEach(function (dot, i) {
+                dot.addEventListener('click', function () {
+                    clearInterval(timer); show(i); startAuto();
+                });
+            });
+
+            startAuto();
+        })();
+    </script>
+</body>
+
+</html>
